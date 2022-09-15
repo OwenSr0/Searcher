@@ -34,11 +34,13 @@ const Description = (props) => {
 export default Description;
 
 Description.defaultProps = {
-    userState: PropTypes.array,
-    bio: PropTypes.string,
+    bio: PropTypes.func,
 }
   
 Description.propTypes = {
-    userState: PropTypes.string,
-    bio: PropTypes.string,
+    userState: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object,
+      ]).isRequired,
+    bio: PropTypes.func,
   }

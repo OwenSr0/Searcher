@@ -2,6 +2,11 @@ import { Typography, Paper, Stack } from '@mui/material';
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const styles = {
+  display:'flex',
+  justifyContent: 'center'
+}
+
 const PaperInformation = ({userState}) => {
     const {
         followers,
@@ -12,26 +17,22 @@ const PaperInformation = ({userState}) => {
             <Stack
             spacing={3}
             sx={{
-              display: 'flex',
               flexDirection: {xs:'column', sm:'row'},
               justifyContent:'space-around',
-              alignItems: {xs:'flex-start', sm:'flex-end'},
+              alignItems: {xs:'center', sm:'flex-end'},
                margin:'20px'}}
             >
                 <Stack>
                   <Typography variant='h5'>Repos</Typography>  
-                  <Typography variant='h6'>{userState.public_repos}</Typography>  
+                  <Typography variant='h6' sx={styles}>{userState.public_repos}</Typography>  
                 </Stack>
                 <Stack>
                   <Typography variant='h5'>Followers</Typography>  
-                  <Typography
-                   variant='h6'
-                   sx={{justifyContent:'center'}}
-                   >{followers}</Typography>  
+                  <Typography variant='h6' sx={styles}>{followers}</Typography>  
                 </Stack>
                 <Stack>
                   <Typography variant='h5'>Following</Typography>  
-                  <Typography variant='h6'>{following}</Typography>  
+                  <Typography variant='h6' sx={styles}>{following}</Typography>  
                 </Stack>
             </Stack>
 
@@ -43,13 +44,15 @@ const PaperInformation = ({userState}) => {
 export default PaperInformation;
 
 PaperInformation.defaultProps = {
-  userState: PropTypes.array,
-  followers: PropTypes.number,
-  following: PropTypes.number,
+  followers: PropTypes.func,
+  following: PropTypes.func,
 }
 
 PaperInformation.propTypes = {
-  userState: PropTypes.string,
-  followers: PropTypes.number,
-  following: PropTypes.number,
+  userState: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.object,
+  ]).isRequired,
+  followers: PropTypes.func,
+  following: PropTypes.func,
 }

@@ -16,7 +16,9 @@ const PrincipalInfo = ({userState}) => {
                 <Typography variant='h4'>{name}</Typography>
                 <Typography variant='subtittle2'
                 sx={{
-                    marginLeft:{xs:'30px', sm:'0'} 
+                    marginLeft:{xs:'30px', sm:'40vw', md:'0'}, 
+                    textAlign:{xs:'right',md:'initial'}    
+
                 }}
                 >{userState.created_at}</Typography>    
             </Stack>
@@ -28,13 +30,15 @@ const PrincipalInfo = ({userState}) => {
 export default PrincipalInfo;
 
 PrincipalInfo.defaultProps = {
-    userState: PropTypes.array,
-    name: PropTypes.string,
-    login: PropTypes.string,
+    name: PropTypes.func,
+    login: PropTypes.func,
   }
   
   PrincipalInfo.propTypes = {
-    userState: PropTypes.string,
-    name: PropTypes.string,
-    login: PropTypes.string,
+    userState: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object,
+      ]).isRequired,
+    name: PropTypes.func,
+    login: PropTypes.func,
   }

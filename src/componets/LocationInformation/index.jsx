@@ -80,18 +80,20 @@ const LocationInformation = (props) => {
 export default LocationInformation;
 
 LocationInformation.defaultProps = {
-    userState: PropTypes.array,
-    location: PropTypes.string,
-    twitter: PropTypes.string,
-    blog: PropTypes.string,
-    company: PropTypes.string,
+    location: PropTypes.func,
+    twitter: PropTypes.func,
+    blog: PropTypes.func,
+    company: PropTypes.func,
 }
 
 LocationInformation.propTypes = {
-    userState: PropTypes.string,
-    location: PropTypes.string,
-    twitter: PropTypes.string,
-    blog: PropTypes.string,
-    company: PropTypes.string,
+    userState: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object,
+      ]).isRequired,
+    location: PropTypes.func,
+    twitter: PropTypes.func,
+    blog: PropTypes.func,
+    company: PropTypes.func,
 }
 

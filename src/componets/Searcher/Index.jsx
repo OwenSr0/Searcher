@@ -71,6 +71,7 @@ const Searcher = (props) => {
                     )
             }
         <IconButton 
+        tittle='uwu'
         sx={iconSearchStyle}
         onClick={handleSubmit}
         >
@@ -84,11 +85,11 @@ const Searcher = (props) => {
 export default Searcher;
 
 Searcher.defaultProps = {
-    setInputUser: PropTypes.string,
+    setInputUser: PropTypes.func,
     notFound: PropTypes.bool,
   }
   
   Searcher.propTypes = {
-    setInputUser: PropTypes.string,
+    setInputUser: PropTypes.func,
     notFound: PropTypes.bool,
   }

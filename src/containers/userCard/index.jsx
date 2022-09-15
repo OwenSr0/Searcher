@@ -32,7 +32,11 @@ const UserCard = ({userState}) => {
             }}
             />
             </Grid>
-            <Grid item xs={9}>
+            <Grid item xs={9}
+            sx={{
+                maxWidth:{xs:'100%', md:'75%'}
+            }}
+            >
                 <Stack
                 direction='column'
                 spacing={1}
@@ -48,11 +52,13 @@ const UserCard = ({userState}) => {
 export default UserCard;
 
 UserCard.defaultProps = {
-    userState: PropTypes.array,
-    avatar_url: PropTypes.string,
+    avatar_url: PropTypes.func,
 }
   
 UserCard.propTypes = {
-    userState: PropTypes.string,
-    avatar_url: PropTypes.string,
+    userState: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.object,
+      ]).isRequired,
+    avatar_url: PropTypes.func,
   }

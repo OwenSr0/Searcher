@@ -7,7 +7,7 @@ import UserCard from './containers/userCard/index'
 const stackStyle = {
         background: 'whitesmoke',
         width: {xs:"90vw", md: "80vw"},
-        height: {xs:"100%", md: "60vh", lg:"600px"},
+        height: {xs:"100%", md: "105vh", lg:"600px"},
         borderRadius: '16px',
         marginTop: {xs:"15px", md: "30px", lg:"40px"},
         display: {xs:"block", md:"flex"},
@@ -15,6 +15,8 @@ const stackStyle = {
         alignItems: 'center',
         paddingBottom: {xs:"1rem", sm: "3rem", lg:"0"}
     }
+    
+
 
 const App = () => {
     
